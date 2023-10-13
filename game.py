@@ -16,3 +16,14 @@ def generate_code():
         code.append(color)
 
     return code
+
+# function that allows user to guess the code
+def guess_code():
+
+    while True:
+        guess = input("Guess: ").upper().split(" ")
+
+        # check if input is equal to 4
+        if len(guess) != CODE_LENGTH:
+            print(f"You must guess {CODE_LENGTH} colors.")
+            continue
