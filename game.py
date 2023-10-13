@@ -27,3 +27,20 @@ def guess_code():
         if len(guess) != CODE_LENGTH:
             print(f"You must guess {CODE_LENGTH} colors.")
             continue
+
+        # check if color is in the list
+        for color in guess:
+            if color not in COLORS:
+                print(f"Invalid color: {color}. Try again.")
+                break
+        else:
+            break
+
+    return guess
+
+# check how many guessing colors are correct
+def check_code(guess, real_code):
+    color_counts = {}
+    # keep track of colors that are in and not in the correct position
+    correct_pos = 0
+    incorrect_pos = 0
