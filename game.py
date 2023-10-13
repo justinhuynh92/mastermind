@@ -63,3 +63,18 @@ def check_code(guess, real_code):
 
     return correct_pos, incorrect_pos
 
+def game():
+    code = generate_code()
+    for attempts in range(1, TRIES + 1):
+        guess = guess_code()
+        correct_pos, incorrect_pos = check_code(guess, code)
+
+        if correct_pos == CODE_LENGTH:
+            print(f"You guessed the code in {attempts} tries!")
+            break
+
+        print(f"Correct Positions: {correct_pos} | Incorrect Positions: {incorrect_pos}")
+
+    else:
+        # print individual element from the list
+        print("You ran out of tries, the code was:", *code)
